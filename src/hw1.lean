@@ -115,3 +115,35 @@ begin
     }
 end
 #print or_associative
+
+
+theorem and_definition (P Q: Prop)(HP : P)(HQ: Q): P ∧ Q :=
+begin
+    split,
+        {exact HP,}
+        {exact HQ,}
+end
+#print and_definition
+
+theorem and_symmetric(P Q: Prop): P ∧ Q → Q ∧ P :=
+begin 
+    intro HPQ,
+    cases HPQ with HP HQ,
+    split,
+        {exact HQ,},
+        {exact HP,},
+end
+#print and_symmetric
+
+theorem and_transitive(P Q R: Prop) :
+(P ∧ Q) ∧ (Q ∧ R) → (P ∧ R) :=
+begin
+    intro HPQandHQR,
+    cases HPQandHQR with HPQ HQR,
+        cases HPQ with HP HQ,
+            split, 
+                {exact HP,},
+        cases HQR with HQ' HR,
+            exact HR,
+end
+#print and_transitive
