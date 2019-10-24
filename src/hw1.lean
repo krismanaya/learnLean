@@ -135,7 +135,7 @@ begin
 end
 #print and_symmetric
 
-theorem and_transitive(P Q R: Prop) :
+theorem and_transitive(P Q R: Prop):
 (P ∧ Q) ∧ (Q ∧ R) → (P ∧ R) :=
 begin
     intro HPQandHQR,
